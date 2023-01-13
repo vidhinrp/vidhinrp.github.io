@@ -14572,49 +14572,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
     </script>
     <!-- End of mathjax configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_hide_code">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%HTML</span>
-<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span><span class="w"> </span><span class="nt">code</span><span class="w"> </span><span class="p">{</span><span class="k">background-color</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">lightgrey</span><span class="w"> </span><span class="cp">!important</span><span class="p">;}</span><span class="w"> </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
-</pre></div>
 
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
-<style> code {background-color : lightgrey !important;} </style>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -14763,18 +14721,21 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><code>CREATE DATABASE worldcup;</p>
-<p><code>CREATE TABLE teams(
+
+<pre><code>CREATE DATABASE worldcup;
+
+CREATE TABLE teams(
     team_id SERIAL PRIMARY KEY
-    name VARCHAR(100));</p>
-<p><code>CREATE TABLE games(
+    name VARCHAR(100));
+
+CREATE TABLE games(
     game_id SERIAL PRIMARY KEY
     year INT NOT NULL
     round VARCHAR(80)
     winner_id INT NOT NULL REFERENCES teams.team_id
     opponent_id INT NOT NULL REFERENCES teams.team_id
     winner_goals INT NOT NULL
-    opponent_goals INT NOT NULL);</p>
+    opponent_goals INT NOT NULL);</code></pre>
 
 </div>
 </div>
@@ -14821,11 +14782,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><code>PGHOST='localhost'
+
+<pre><code>PGHOST='localhost'
 PGPORT='5432'
 PGDATABASE='worldcup'
 PGUSER='postgres'
-PGPASSWORD='<strong>*</strong>'</p>
+PGPASSWORD='*****'</code></pre>
 
 </div>
 </div>
@@ -14849,10 +14811,12 @@ PGPASSWORD='<strong>*</strong>'</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><code>set -o allexport
+
+<pre><code>set -o allexport
 source .env
-set +o allexport</p>
-<p><code>PSQL="psql -t --no-align -c"</p>
+set +o allexport
+
+PSQL="psql -t --no-align -c"</code></pre>
 
 </div>
 </div>
@@ -14876,7 +14840,8 @@ set +o allexport</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><code>cat games.csv | while IFS="," read year round winner opponent winner_goals opponent_goals</code></p>
+
+<pre><code>cat games.csv | while IFS="," read year round winner opponent winner_goals opponent_goals</code></pre>
 
 </div>
 </div>
@@ -14900,38 +14865,25 @@ set +o allexport</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><code>if [[ $winner != "winner" ]]
-then</p>
 
-<pre><code>GET_WINNER_ID=$($PSQL "select team_id from teams where name='$winner'")
+<pre><code>  if [[ $winner != "winner" ]]
+  then 
+    GET_WINNER_ID=$($PSQL "select team_id from teams where name='$winner'")
 
-if [[ -z $GET_WINNER_ID ]]
-then
-  INSERT_WINNER=$($PSQL "insert into teams(name) values('$winner')")
-fi
+  if [[ -z $GET_WINNER_ID ]]
+  then
+    INSERT_WINNER=$($PSQL "insert into teams(name) values('$winner')")
+  fi
 
-WINNER_ID=$($PSQL "select team_id from teams where name='$winner'")
+  WINNER_ID=$($PSQL "select team_id from teams where name='$winner'")
+  GET_OPP_ID=$($PSQL "select team_id from teams where name='$opponent'")
 
-GET_OPP_ID=$($PSQL "select team_id from teams where name='$opponent'")
+  if [[ -z $GET_OPP_ID ]]
+  then
+    INSERT_OPP=$($PSQL "insert into teams(name) values('$opponent')")
+  fi
 
-if [[ -z $GET_OPP_ID ]]
-then
-  INSERT_OPP=$($PSQL "insert into teams(name) values('$opponent')")
-fi
-
-OPP_ID=$($PSQL "select team_id from teams where name='$opponent'")</code></pre>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>We will insert the remaining data values (<code>game_id</code>, <code>round</code>, <code>winner_goals</code>, <code>opponent_goals</code>) along with the retrieved <code>opponent_id</code> and <code>winner_id</code>into the <code>games</code>table.</p>
+  OPP_ID=$($PSQL "select team_id from teams where name='$opponent'")</code></pre>
 
 </div>
 </div>
@@ -14943,9 +14895,22 @@ OPP_ID=$($PSQL "select team_id from teams where name='$opponent'")</code></pre>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><code>INSERT_GAMES_DATA=$($PSQL "insert into games(year, round, opponent_id,
+<p>We will insert the remaining data values (<code>game_id</code>, <code>round</code>, <code>winner_goals</code>, <code>opponent_goals</code>) along with the retrieved <code>opponent_id</code> and <code>winner_id</code> into the <code>games</code> table.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+<pre><code>INSERT_GAMES_DATA=$($PSQL "insert into games(year, round, opponent_id,
                     winner_id, opponent_goals, winner_goals) values($year, '$round', $OPP_ID, 
-                    $WINNER_ID, $opponent_goals,$winner_goals)")&lt;\code&gt;</p>
+                    $WINNER_ID, $opponent_goals,$winner_goals)")</code></pre>
 
 </div>
 </div>
@@ -15005,10 +14970,12 @@ OPP_ID=$($PSQL "select team_id from teams where name='$opponent'")</code></pre>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><code>set -o allexport
+
+<pre><code>set -o allexport
 source .env
-set +o allexport</p>
-<p><code>PSQL="psql -t --no-align -c"</p>
+set +o allexport
+
+PSQL="psql -t --no-align -c"</code></pre>
 
 </div>
 </div>
@@ -15032,30 +14999,42 @@ set +o allexport</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><code> echo -e "\nTotal number of goals in all games from winning teams:"
-echo "$($PSQL "SELECT SUM(winner_goals) FROM games")"</p>
-<p><code>echo -e "\nTotal number of goals in all games from both teams combined:"
-echo "$($PSQL "select sum(winner_goals + opponent_goals) from games")"</p>
-<p><code>echo -e "\nAverage number of goals in all games from the winning teams:"
-echo "$($PSQL "select avg(winner_goals) from games")"</p>
-<p><code>echo -e "\nAverage number of goals in all games from the winning teams rounded to two decimal places:"
-echo "$($PSQL "select round(avg(winner_goals), 2) from games")"</p>
-<p><code>echo -e "\nAverage number of goals in all games from both teams:"
-echo "$($PSQL "select avg(winner_goals + opponent_goals) from games")"</p>
-<p><code>echo -e "\nMost goals scored in a single game by one team:"
-echo "$($PSQL "select max(winner_goals) from games")"</p>
-<p><code>echo -e "\nNumber of games where the winning team scored more than two goals:"
-echo "$($PSQL "select count(*) from games where winner_goals &gt; 2")"</p>
-<p><code>echo -e "\nWinner of the 2018 tournament team name:"
-echo "$($PSQL "select name from teams left join games on teams.team_id = games.winner_id where year=2018 AND round='Final'")"</p>
-<p><code>echo -e "\nList of teams who played in the 2014 'Eighth-Final' round:"
-echo "$($PSQL "select name from teams inner join games on teams.team_id = games.winner_id where year=2014 and round='Eighth-Final' union select name from teams inner join games on teams.team_id = games.opponent_id where year=2014 and round='Eighth-Final' order by name")"</p>
-<p><code>echo -e "\nList of unique winning team names in the whole data set:"
-echo "$($PSQL "select distinct(name) from teams inner join games on teams.team_id = games.winner_id order by name")"</p>
-<p><code>echo -e "\nYear and team name of all the champions:"
-echo "$($PSQL "select year, name from games inner join teams on games.winner_id = teams.team_id where round = 'Final' order by year")"</p>
-<p><code>echo -e "\nList of teams that start with 'Co':"
-echo "$($PSQL "select name from teams where name LIKE 'Co%' order by name")"</p>
+
+<pre><code>echo -e "\nTotal number of goals in all games from winning teams:"
+echo "$($PSQL "SELECT SUM(winner_goals) FROM games")"
+
+echo -e "\nTotal number of goals in all games from both teams combined:"
+echo "$($PSQL "select sum(winner_goals + opponent_goals) from games")"
+
+echo -e "\nAverage number of goals in all games from the winning teams:"
+echo "$($PSQL "select avg(winner_goals) from games")"
+
+echo -e "\nAverage number of goals in all games from the winning teams rounded to two decimal places:"
+echo "$($PSQL "select round(avg(winner_goals), 2) from games")"
+
+echo -e "\nAverage number of goals in all games from both teams:"
+echo "$($PSQL "select avg(winner_goals + opponent_goals) from games")"
+
+echo -e "\nMost goals scored in a single game by one team:"
+echo "$($PSQL "select max(winner_goals) from games")"
+
+echo -e "\nNumber of games where the winning team scored more than two goals:"
+echo "$($PSQL "select count(*) from games where winner_goals &gt; 2")"
+
+echo -e "\nWinner of the 2018 tournament team name:"
+echo "$($PSQL "select name from teams left join games on teams.team_id = games.winner_id where year=2018 AND round='Final'")"
+
+echo -e "\nList of teams who played in the 2014 'Eighth-Final' round:"
+echo "$($PSQL "select name from teams inner join games on teams.team_id = games.winner_id where year=2014 and round='Eighth-Final' union select name from teams inner join games on teams.team_id = games.opponent_id where year=2014 and round='Eighth-Final' order by name")"
+
+echo -e "\nList of unique winning team names in the whole data set:"
+echo "$($PSQL "select distinct(name) from teams inner join games on teams.team_id = games.winner_id order by name")"
+
+echo -e "\nYear and team name of all the champions:"
+echo "$($PSQL "select year, name from games inner join teams on games.winner_id = teams.team_id where round = 'Final' order by year")"
+
+echo -e "\nList of teams that start with 'Co':"
+echo "$($PSQL "select name from teams where name LIKE 'Co%' order by name")"</code></pre>
 
 </div>
 </div>
@@ -15108,65 +15087,6 @@ echo "$($PSQL "select name from teams where name LIKE 'Co%' order by name")"</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">jupyter</span> <span class="n">nbconvert</span> <span class="o">--</span><span class="n">to</span> <span class="n">html</span> <span class="o">--</span><span class="n">TagRemovePreprocessor</span><span class="o">.</span><span class="n">remove_cell_tags</span><span class="o">=</span><span class="s1">&#39;{&quot;hide_code&quot;}&#39;</span> <span class="n">World</span> <span class="n">Cup</span> <span class="n">Database</span><span class="o">.</span><span class="n">ipynb</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>
-<span class="ansi-cyan-intense-fg ansi-bold">  Input </span><span class="ansi-green-intense-fg ansi-bold">In [14]</span>
-<span class="ansi-yellow-intense-fg ansi-bold">    jupyter nbconvert --to html --TagRemovePreprocessor.remove_cell_tags=&#39;{&#34;hide_code&#34;}&#39; World Cup Database.ipynb</span>
-<span class="ansi-white-intense-fg ansi-bold">            ^</span>
-<span class="ansi-red-intense-fg ansi-bold">SyntaxError</span><span class="ansi-red-intense-fg ansi-bold">:</span> invalid syntax
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 </body>
 

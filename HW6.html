@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>HW6</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="HW6_files/libs/clipboard/clipboard.min.js"></script>
+<script src="HW6_files/libs/quarto-html/quarto.js"></script>
+<script src="HW6_files/libs/quarto-html/popper.min.js"></script>
+<script src="HW6_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="HW6_files/libs/quarto-html/anchor.min.js"></script>
+<link href="HW6_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="HW6_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="HW6_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="HW6_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="HW6_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">HW6</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plyr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="section-1-exploring-generalized-linear-mixed-effects-model-glmm-analysis" class="level1">
+<h1>Section 1: Exploring Generalized Linear Mixed Effects Model (GLMM) Analysis</h1>
+<p>We will use data from a clinical trial comparing auranofin therapy (3 mg of oral gold, twice daily) and placebo for the treatment of rheumatoid arthritis (Bombardier et al., 1986). In this six-month, randomized, double-blind trial, 303 patients with classic or definite rheumatoid arthritis were randomized to one of the two treatment groups and followed over time. The outcome variable is a global impression scale (Arthritis Categorical Scale, ACS) measured at baseline (month 0), month 2, month 4, and month 6. This is a self- assessment of a patient’s current arthritis, measured on a 5-level ordinal scale: (1) very good, (2) good, (3) fair, (4) poor, and (5) very poor. Baseline data on this outcome variable are available for 303 of the patients who participated in this trial; follow-up data at 6 months are available for 294 patients.</p>
+<section id="data-preprocessing" class="level2">
+<h2 class="anchored" data-anchor-id="data-preprocessing">Data Preprocessing</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"arthritis-data.csv"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">reshape</span>(df, <span class="at">timevar =</span> <span class="st">'Month'</span>, </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">idvar =</span> <span class="fu">c</span>(<span class="st">'ID'</span>,<span class="st">'Treatment'</span>,<span class="st">'Age'</span>), </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">direction =</span> <span class="st">"long"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                        <span class="at">varying =</span> <span class="fu">c</span>(<span class="st">'Baseline'</span>, <span class="st">'Month2'</span>, <span class="st">'Month4'</span>, <span class="st">'Month6'</span>),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                        <span class="at">time =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>),</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                        <span class="at">v.names =</span> <span class="st">'ACS'</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>acs <span class="ot">=</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>ACS <span class="sc">&lt;=</span> <span class="dv">2</span>, <span class="dv">1</span>, <span class="fu">ifelse</span>(df<span class="sc">$</span>ACS <span class="sc">==</span> <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>))     </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> df[<span class="fu">is.na</span>(df<span class="sc">$</span>acs) <span class="sc">==</span> F, ]    </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> df[<span class="fu">order</span>(df<span class="sc">$</span>ID),]                                     </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="preliminary-analysis-observed-proportions-over-time" class="level2">
+<h2 class="anchored" data-anchor-id="preliminary-analysis-observed-proportions-over-time">Preliminary Analysis: Observed Proportions over Time</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Calculate observed proportions of each category over time by treatment group</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>arth_obs <span class="ot">&lt;-</span> <span class="fu">count</span>(df, <span class="fu">c</span>(<span class="st">"Treatment"</span>,<span class="st">"Month"</span>,<span class="st">"acs"</span>))</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>arth_obs<span class="sc">$</span>Treatment <span class="ot">&lt;-</span> <span class="fu">factor</span>(arth_obs<span class="sc">$</span>Treatment, </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                             <span class="at">levels=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                             <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Placebo"</span>, <span class="st">"Auranofin"</span>))</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Plot a stacked bar graph of observed proportions of each category over time</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>arth_obs, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">factor</span>(Month), <span class="at">y=</span>freq, <span class="at">fill=</span><span class="fu">factor</span>(acs)))</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>Treatment, <span class="at">labeller=</span>label_both) <span class="sc">+</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">"fill"</span>, <span class="at">stat=</span><span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>     <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Observed Proportions of Each Outcome Category over Time"</span>, </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>                  <span class="at">x=</span><span class="st">"Month"</span>, </span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>                  <span class="at">y=</span><span class="st">"Proportion"</span>, </span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fill=</span><span class="st">"Arthritis Categorical Scale"</span>) <span class="sc">+</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>     <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"coral"</span>, <span class="st">"goldenrod1"</span>, <span class="st">"darkorange2"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="HW6_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>It appears that in the placebo group, ACS proportion for category 3 steadily declines over time. In the treatment group, the converse it true as proportion for category 3 increases following month 2. Also, the proportion of category 1 is higher in the treatment group compared to the control group accross different time points (except at baseline). At month 2, the categroy 2 proportion is substantially higher in treatment compared to control.</p>
+</section>
+<section id="equations-for-glmm" class="level2">
+<h2 class="anchored" data-anchor-id="equations-for-glmm">Equations for GLMM:</h2>
+<p>Let’s write subject-specific equations for the GLMM, starting with thresholds, integrating covariates, beta coefficients, and random effects, and eventually converting equations to combined intercepts, factoring in each cumulative logit.</p>
+<p>GLMM for the log-odds of a more favorable outcome with random slope and random intercept: <span class="math display">\[
+\begin{aligned}
+\text{logit}\{E(Y_{ij}\le c|b_i)\} &amp;= \log\left\{\frac{Pr(Y_{ij}\le c|b_i)}{Pr(Y_{ij}&gt; c|b_i)}\right\} \\
+&amp;= a_c - (\beta_1 + \beta_2\text{Treatment}_i + \beta_3\sqrt{\text{Month}}_{ij} \\
+&amp;\quad + \beta_4\text{Treatment}*\sqrt{\text{Month}}_{ij} + b_{1i} + b_{3i}\sqrt{\text{Month}}_{ij}) \\
+&amp;= (a_c - \beta_1) + (\beta_2\text{Treatment}_i + \beta_3\sqrt{\text{Month}}_{ij} \\
+&amp;\quad + \beta_4\text{Treatment}*\sqrt{\text{Month}}_{ij} + b_{1i} + b_{3i}\sqrt{\text{Month}}_{ij}) \\
+&amp;= a_{c}^{\text{©}} - (\beta_2\text{Treatment}_i + \beta_3\sqrt{\text{Month}}_{ij} \\
+&amp;\quad + \beta_4\text{Treatment}*\sqrt{\text{Month}}_{ij} + b_{1i} + b_{3i}\sqrt{\text{Month}}_{ij})
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(b_i \sim \text{MVN}(0,G)\)</span>, where <span class="math inline">\(G = \begin{pmatrix} g_{11} &amp; g_{12} \\ g_{21} &amp; g_{22}\end{pmatrix}=\begin{pmatrix} \sigma_{b_{1i}}^2 &amp; \text{Cov}(b_{1i}, b_{3i}) \\ \text{Cov}(b_{1i}, b_{3i}) &amp; \sigma_{b_{3i}}^2 \end{pmatrix}\)</span></p>
+</section>
+<section id="incorporating-estimated-parameters" class="level2">
+<h2 class="anchored" data-anchor-id="incorporating-estimated-parameters">Incorporating Estimated Parameters:</h2>
+<p>We can transpose the equations using the estimated parameters extracted from the GLMM output, providing a nuanced understanding of the model’s dynamics.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ordinal)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>SMONTH <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(df<span class="sc">$</span>Month)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>TXSMTH <span class="ot">&lt;-</span> df<span class="sc">$</span>SMONTH<span class="sc">*</span>df<span class="sc">$</span>Treatment</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>M1<span class="fl">.1</span> <span class="ot">&lt;-</span> <span class="fu">clmm</span>(<span class="fu">as.factor</span>(acs) <span class="sc">~</span> Treatment <span class="sc">+</span> SMONTH </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                                <span class="sc">+</span> TXSMTH <span class="sc">+</span> (SMONTH<span class="sc">|</span>ID), </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">data=</span>df)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(M1<span class="fl">.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Cumulative Link Mixed Model fitted with the Laplace approximation
+
+formula: as.factor(acs) ~ Treatment + SMONTH + TXSMTH + (SMONTH | ID)
+data:    df
+
+ link  threshold nobs logLik   AIC     niter     max.grad cond.H 
+ logit flexible  1194 -1115.48 2246.97 522(2625) 2.82e-04 8.3e+02
+
+Random effects:
+ Groups Name        Variance Std.Dev. Corr  
+ ID     (Intercept) 2.55362  1.5980         
+        SMONTH      0.09292  0.3048   0.978 
+Number of groups:  ID 303 
+
+Coefficients:
+          Estimate Std. Error z value Pr(&gt;|z|)    
+Treatment  -0.1607     0.2919  -0.551 0.581969    
+SMONTH     -0.3916     0.1012  -3.870 0.000109 ***
+TXSMTH     -0.3228     0.1416  -2.280 0.022632 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Threshold coefficients:
+    Estimate Std. Error z value
+1|2  -1.9178     0.2331  -8.227
+2|3   1.0128     0.2172   4.662</code></pre>
+</div>
+</div>
+<p>From R output: <span class="math inline">\(\hat{\sigma_{b_{1l}}^2}=2.55362\)</span>; <span class="math inline">\(\hat{\sigma_{b_{3l}}^2}=0.09292\)</span> ; <span class="math inline">\(Corr(\hat{b_{1l}}, b_{3l})= 0.978\)</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+\alpha_{c}^{©} &amp;= \alpha_{c}^{©} - \beta_{1} : \alpha_{c}^{©} \text{ is a combined new intercept, } \alpha_{c}^{©} \text{ is a threshold, } \beta_{1} \text{ is Intercept} \\
+\alpha_{1}^{©} &amp;= \alpha_{1} - \beta_{1} , \alpha_{1} = 0, \hat{\alpha_{1}^{©}} = -1.9178, \text{ hence } \hat{\beta_{1}} \text{ is } 1.9178 \\
+\alpha_{2}^{©} &amp;= \alpha_{2} - \beta_{1} , \hat{\alpha_{2}^{©}} = 1.0128, \text{ hence } \hat{\alpha_{2}} = 1.0128 + 1.9178 = 2.9306
+\end{aligned}
+\]</span></p>
+<p>Average of Subject-specific logit for a ‘typical’ subject, <span class="math inline">\(b_{1i}=0, b_{3i}=0\)</span></p>
+<p><span class="math inline">\(logit\{E(Y_{ij}\le c|b_i)\}=a_{c}^{©}-(\beta_2*\text{Treatment}_i+\beta_3\sqrt{\text{(Month)}}_{ij}+\beta_4*\text{Treatment}*\sqrt{\text{(Month)}}_{ij})\)</span></p>
+<p><span class="math inline">\(logit\{E(Y_{ij}\le 1|b_i=0)\}=-1.9178-(-0.1607*\text{Treatment}_i-0.3916\sqrt{\text{(Month)}}_{ij}-0.3228*\text{Treatment}*\sqrt{\text{(Month)}}_{ij})\)</span></p>
+<p><span class="math inline">\(logit\{E(Y_{ij}\le 2|b_i=0)\}=1.0128-(-0.1607*\text{Treatment}_i-0.3916\sqrt{\text{(Month)}}_{ij}-0.3228*\text{Treatment}*\sqrt{\text{(Month)}}_{ij})\)</span></p>
+</section>
+<section id="random-effects-significance-test" class="level2">
+<h2 class="anchored" data-anchor-id="random-effects-significance-test">Random Effects Significance Test</h2>
+<p>A pivotal step involved testing the relevance of both random intercept and slope components within the model, we will examine the significance of each and decipher their implications on the overall model structure. We will compare the two models using liklihood ratio rest.</p>
+<p>H_{0}: Variance of the random slope (<span class="math inline">\(b_{3i}\)</span>) is zero H_{a}: Variance of the random slope (<span class="math inline">\(b_{3i}\)</span>) is not zero</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>M1<span class="fl">.2</span> <span class="ot">&lt;-</span> <span class="fu">clmm</span>(<span class="fu">as.factor</span>(acs) <span class="sc">~</span> Treatment <span class="sc">+</span> SMONTH </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                                <span class="sc">+</span> TXSMTH <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>ID),</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> df)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>test.statistics <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">2</span><span class="sc">*</span>(M1<span class="fl">.2</span><span class="sc">$</span>logLik<span class="sc">-</span>M1<span class="fl">.1</span><span class="sc">$</span>logLik)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>test.statistics</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8.804148</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>p.value <span class="ot">&lt;-</span> <span class="fl">0.5</span><span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span><span class="fu">pchisq</span>(test.statistics,<span class="dv">1</span>)) <span class="sc">+</span> <span class="fl">0.5</span><span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span><span class="fu">pchisq</span>(test.statistics,<span class="dv">2</span>)) </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>p.value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.007628685</code></pre>
+</div>
+</div>
+<p>With a p-value &lt; than 0.05 and a test statistic of 8.804, we reject the null hypothesis. Thus, the model with random intercept and slopes is a better model based on the LRT.</p>
+<p>The random effects can be interpreted as: - slope: heteogeneity among patients at baseline for change in log-odds of favorable response over time - intercept: heterogeneity among patients at baseline for log-odds of favorable response</p>
+</section>
+<section id="intervention-group-signifiance-test" class="level2">
+<h2 class="anchored" data-anchor-id="intervention-group-signifiance-test">Intervention Group Signifiance Test</h2>
+<p>With the optimal model, let’s further examine the impact of intervention group on the subject-specific odds of a more favorable response over the study duration. We do this by formulating hypotheses, executing tests, and dissecting the results for insightful interpretation.</p>
+<p><span class="math inline">\(H_{0} :\beta_4 = 0\)</span> <span class="math inline">\(H_{1}: \beta_4 \neq 0\)</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>M1<span class="fl">.3</span> <span class="ot">&lt;-</span> <span class="fu">clmm</span>(<span class="fu">as.factor</span>(acs) <span class="sc">~</span> Treatment <span class="sc">+</span> SMONTH </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>                                <span class="sc">+</span> (SMONTH<span class="sc">|</span>ID),</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> df)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>test.statistics <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">2</span><span class="sc">*</span>(M1<span class="fl">.3</span><span class="sc">$</span>logLik<span class="sc">-</span>M1<span class="fl">.1</span><span class="sc">$</span>logLik)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>test.statistics</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.22242</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>p.value <span class="ot">&lt;-</span> <span class="fl">0.5</span><span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span><span class="fu">pchisq</span>(test.statistics,<span class="dv">1</span>)) <span class="sc">+</span> <span class="fl">0.5</span><span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span><span class="fu">pchisq</span>(test.statistics,<span class="dv">2</span>)) </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>p.value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.04787157</code></pre>
+</div>
+</div>
+<p>With a p-value &lt; 0.05 and test statistic of 5.2242 for a liklihood ratio test, we reject the null hypothesis. We conclude that there is significant effect of intervention group on the change in subject-specific odds of a more favorable response over the duration of the study.</p>
+</section>
+<section id="interpreting-combined-intercepts" class="level2">
+<h2 class="anchored" data-anchor-id="interpreting-combined-intercepts">Interpreting Combined Intercepts</h2>
+<p>The first cumulative <span class="math inline">\(logit\{Pr(Y_{ij} \leq 1)\}\)</span> of a typical patient at baseline in the placebo group = <span class="math inline">\(\hat{{a_{1}^{©}}}=-1.9178\)</span>. The second second cumulative <span class="math inline">\(logit\{Pr(Y_{ij} \leq 2)\}\)</span> of a typical patient at baseline in the placebo group = <span class="math inline">\(\hat{{a_{2}^{©}}}=1.0128\)</span></p>
+</section>
+<section id="visualizing-the-proportionality-assumption" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-the-proportionality-assumption">Visualizing the Proportionality Assumption</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Output common intercepts for each logit:</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>alpha1_C<span class="ot">&lt;-</span>M1<span class="fl">.1</span><span class="sc">$</span>Theta[<span class="dv">1</span>]</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>alpha2_C<span class="ot">&lt;-</span>M1<span class="fl">.1</span><span class="sc">$</span>Theta[<span class="dv">2</span>]</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>Beta2<span class="ot">&lt;-</span>M1<span class="fl">.1</span><span class="sc">$</span>beta[<span class="dv">1</span>]</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>Beta3<span class="ot">&lt;-</span>M1<span class="fl">.1</span><span class="sc">$</span>beta[<span class="dv">2</span>]</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>Beta4<span class="ot">&lt;-</span>M1<span class="fl">.1</span><span class="sc">$</span>beta[<span class="dv">3</span>]</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>time<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>est.cum.logit<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">MONTH=</span><span class="fu">rep</span>(time,<span class="at">times=</span><span class="dv">2</span>), </span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>                          <span class="at">SMONTH=</span><span class="fu">rep</span>(<span class="fu">sqrt</span>(time),<span class="at">times=</span><span class="dv">2</span>), </span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>                          <span class="at">treatment=</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">0</span>,<span class="at">times=</span><span class="dv">4</span>),<span class="fu">rep</span>(<span class="dv">1</span>,<span class="at">times=</span><span class="dv">4</span>)), </span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>                          <span class="at">alpha12_C=</span><span class="fu">c</span>(<span class="fu">rep</span>(alpha1_C,<span class="at">times=</span><span class="dv">8</span>),<span class="fu">rep</span>(alpha2_C,<span class="at">times=</span><span class="dv">8</span>)),</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>                          <span class="at">Clogit_type=</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"Clogit(1 vs 2-3)"</span>, <span class="at">times=</span><span class="dv">8</span>), </span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>                                        <span class="fu">rep</span>(<span class="st">"Clogit(1-2 vs 3)"</span>,<span class="at">times=</span><span class="dv">8</span>)))</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>est.cum.logit<span class="sc">$</span>TSMTH<span class="ot">&lt;-</span>est.cum.logit<span class="sc">$</span>SMONTH<span class="sc">*</span>est.cum.logit<span class="sc">$</span>treatment</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>est.cum.logit<span class="sc">$</span>Clogit<span class="ot">&lt;-</span>est.cum.logit<span class="sc">$</span>alpha12_C<span class="sc">-</span>(Beta2<span class="sc">*</span>est.cum.logit<span class="sc">$</span>treatment</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>                                              <span class="sc">+</span>Beta3<span class="sc">*</span>est.cum.logit<span class="sc">$</span>SMONTH</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>                                              <span class="sc">+</span>Beta4<span class="sc">*</span>est.cum.logit<span class="sc">$</span>TSMTH)</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>est.cum.logit<span class="sc">$</span>ctx <span class="ot">&lt;-</span> <span class="fu">factor</span>(est.cum.logit<span class="sc">$</span>treatment, </span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>                           <span class="at">levels=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), </span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>                           <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Placebo"</span>,<span class="st">"Treatment"</span>)) </span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(est.cum.logit, <span class="fu">aes</span>(<span class="at">x =</span> MONTH, </span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> Clogit, </span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>             <span class="at">group =</span> <span class="fu">interaction</span>(ctx, Clogit_type))) </span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>p2 <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color =</span> Clogit_type,<span class="at">linetype =</span>ctx )) <span class="sc">+</span> </span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>((<span class="fu">aes</span>(<span class="at">color =</span> Clogit_type))) <span class="sc">+</span></span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Estimated cumulative logits for typical patient by treatement by month"</span>, </span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>     <span class="at">y =</span> <span class="st">"Estimated Cumulative Logit"</span>, </span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>     <span class="at">color=</span><span class="st">"Cumulative Log-Odds"</span>, </span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>     <span class="at">linetype =</span><span class="st">"Treatment Group"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="HW6_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The slope of change in the cumulative log-odds for the favorable response is the same across (C-1) cumulative log-odds (logits). The log-odds are increasing proportionally across different cumulative logits, so that the ratios remain constant. The plot shows the predicted cumulative log-odds for the favorable response across time for two subject-specific (<span class="math inline">\(b_{1i}\)</span> = <span class="math inline">\(b_{3i}\)</span> = 0) log-odds.</p>
+</section>
+<section id="probability-estimation-plot" class="level2">
+<h2 class="anchored" data-anchor-id="probability-estimation-plot">Probability Estimation Plot</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Create a wide dataframe 'eta' from a long dataframe 'est.cum.logit'</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>eta1<span class="ot">&lt;-</span>est.cum.logit[<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>,] </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>eta2<span class="ot">&lt;-</span>est.cum.logit[<span class="dv">9</span><span class="sc">:</span><span class="dv">16</span>,]</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>eta<span class="ot">&lt;-</span>eta1[,<span class="fu">c</span>(<span class="st">"MONTH"</span>,<span class="st">"SMONTH"</span>,<span class="st">"treatment"</span>,<span class="st">"alpha12_C"</span>,<span class="st">"TSMTH"</span>,<span class="st">"Clogit"</span>,<span class="st">"ctx"</span>)] </span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(eta)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"MONTH"</span>,<span class="st">"SMONTH"</span>,<span class="st">"treatment"</span>,<span class="st">"alpha12_C"</span>,<span class="st">"TSMTH"</span>,<span class="st">"eta1"</span>,<span class="st">"ctx"</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>eta<span class="sc">$</span>eta2 <span class="ot">&lt;-</span> eta2<span class="sc">$</span>Clogit</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>eta<span class="sc">$</span>mu_1<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span><span class="fu">exp</span>(<span class="sc">-</span>eta<span class="sc">$</span>eta1)) </span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>eta<span class="sc">$</span>mu_2<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span><span class="fu">exp</span>(<span class="sc">-</span>eta<span class="sc">$</span>eta2))<span class="sc">-</span><span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span><span class="fu">exp</span>(<span class="sc">-</span>eta<span class="sc">$</span>eta1)) </span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>eta<span class="sc">$</span>mu_3<span class="ot">&lt;-</span><span class="dv">1-1</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span><span class="fu">exp</span>(<span class="sc">-</span>eta<span class="sc">$</span>eta2))</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>est.mu.data<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">MONTH=</span><span class="fu">rep</span>(eta<span class="sc">$</span>MONTH,<span class="at">times=</span><span class="dv">3</span>), </span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>                     <span class="at">ctx=</span><span class="fu">rep</span>(eta<span class="sc">$</span>ctx,<span class="at">times=</span><span class="dv">3</span>),</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>                     <span class="at">mu=</span><span class="fu">c</span>(eta<span class="sc">$</span>mu_1,eta<span class="sc">$</span>mu_2,eta<span class="sc">$</span>mu_3),</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>                     <span class="at">mu.label=</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"Pr(Yij=1)"</span>,<span class="at">times=</span><span class="dv">8</span>),</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>                              <span class="fu">rep</span>(<span class="st">"Pr(Yij=2)"</span>,<span class="at">times=</span><span class="dv">8</span>), <span class="fu">rep</span>(<span class="st">"Pr(Yij=3)"</span>,<span class="at">times=</span><span class="dv">8</span>)))</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(est.mu.data)) { </span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>  est.mu.data<span class="sc">$</span>label[i]<span class="ot">&lt;-</span><span class="fu">paste</span>(<span class="fu">as.character</span>(est.mu.data<span class="sc">$</span>ctx[i]),</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>                              <span class="fu">as.character</span>(est.mu.data<span class="sc">$</span>mu.label[i]))</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>p5 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(est.mu.data, <span class="fu">aes</span>(<span class="at">x=</span>MONTH, <span class="at">y=</span>mu, <span class="at">group=</span>ctx))</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>p5 <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>mu.label, <span class="at">labeller=</span>label_both) <span class="sc">+</span> </span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color=</span>ctx)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color=</span>ctx)) <span class="sc">+</span></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Predicted Probabilities for a Typical Subject over Time </span><span class="sc">\n</span><span class="st"> by Treatment Group for Each Outcome Category"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="HW6_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>For the Very Good category, probability of patients increased over time and the increase was sharper among the treatment group compared to the placebo. For the Good and Fair category, probability of patients decreased over time with a larger decrease in the treatment group compared to the placebo group. Compared to 1b, the proportion of patients in Very Good and Fair is higher across time. The direction of change (increase or decrease) is maintained, however it is much smoother in the predicted probabilities vs 1b.</p>
+</section>
+<section id="analyzing-subject-specific-odds-ratios" class="level2">
+<h2 class="anchored" data-anchor-id="analyzing-subject-specific-odds-ratios">Analyzing Subject-specific Odds Ratios</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>OR <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="fu">sqrt</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>))<span class="sc">*-</span>Beta4)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>OR_DATA <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">MONTH=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>), OR)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>p4 <span class="ot">&lt;-</span>  <span class="fu">ggplot</span>(OR_DATA, <span class="fu">aes</span>(<span class="at">x=</span>MONTH, <span class="at">y=</span>OR))</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>p4 <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Predicted Subject-Specific OR of Favorable Response over Time"</span>,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span><span class="st">"Estimated OR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="HW6_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>At 4 months, a patient assigned to treatment is approximately 2 times more likely to have a favorable response when compared to a similar patient treated with placebo.</p>
+</section>
+<section id="comparing-with-reference-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="comparing-with-reference-analysis">Comparing with Reference Analysis</h2>
+<p>Compared to the “Applied Longitudinal Analysis, 2nd Edition” by Fitzmaurice, Laird, and Ware estimates, the estimated <span class="math inline">\(\beta\)</span>’s for the random effects are about half in magnitude and the variance in double in magnitude. The dissimilarity likely arises from the fact that the book’s model had 5 ordinal levels of ACS while ours had 3 ordinal levels. Even with a smaller level of granularity, the drug has significant effect in the change in subject-specific odds of a more favorable response over time. However, the effects are more pronounced and less variable when there are more ACS levels.</p>
+</section>
+</section>
+<section id="section-2-exploring-generalized-linear-mixed-effects-model-for-nominal-response" class="level1">
+<h1>Section 2: Exploring Generalized Linear Mixed Effects Model for Nominal Response</h1>
+<section id="subject-specific-equations-for-glmm" class="level2">
+<h2 class="anchored" data-anchor-id="subject-specific-equations-for-glmm">Subject-specific Equations for GLMM:</h2>
+<p>Let’s write out the subject-specific equations for the GLMM using covariates, beta coefficients, and random effects, considering “Poor or Very Poor” as the reference category.</p>
+<p>Three-part MGLM specification for Nominal Outcome, <span class="math inline">\(Y_{i,j}\)</span></p>
+<ol type="1">
+<li><p>A distributional assumption of <span class="math inline">\(Y_{ij}|b_i \sim Multinomial(p_{ij}^{(1)},p_{ij}^{(2)},p_{ij}^{(3)})\)</span>, where <span class="math inline">\(p_{ij}^{(c)}=\mu_{ij}^{*(c)}=E(Y_{ij}=c|b_{i}^{(c)})=Pr(Y_{ij}=c|b_{i}^{(c)})\)</span>;</p></li>
+<li><p><span class="math inline">\(\eta_{ij}^{*(c)}=X_{ij}\beta^{(c)}+Z_{ij}b_{i}^{(c)}\)</span>;</p></li>
+<li><p><span class="math inline">\(g(\mu_{ij}^{*(c)})=logit\{Pr(Y_{ij}=c|b_{i}^{(c)})\}=log\{\frac{Pr(Y_{ij}=c|b_{i}^{(c)})}{Pr(Y_{ij}=C|b_{i}^{(c)})}\}\)</span></p></li>
+</ol>
+<p>Baseline category logit with “Poor or Very Poor” (3) as the reference, we have 2 generalized logits:</p>
+<p><span class="math inline">\(log\{\frac{Pr(Y_{ij}=c|b_{i}^{(c)})}{Pr(Y_{ij}=3|b_{i}^{(c)})}\}=\beta_1^{(c)}+\beta_2^{(c)}*\text{Treatment}_i+\beta_3^{(c)}*\sqrt{\text{(Month)}}_{ij}+\beta_4^{(c)}*\text{Treatment}*\sqrt{\text{(Month)}}_{ij}+b_{1i}^{(c)}, c=1,2\)</span></p>
+<p><span class="math inline">\(b_{1i}^{(c)} \sim N(0,\sigma_{b_{1i}^{(c)}}^2)\)</span></p>
+</section>
+<section id="interpretation-of-random-effects" class="level2">
+<h2 class="anchored" data-anchor-id="interpretation-of-random-effects">Interpretation of Random Effects</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mclogit)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(memisc)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>acs2[df<span class="sc">$</span>acs<span class="sc">==</span><span class="dv">1</span>]<span class="ot">&lt;-</span><span class="dv">3</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>acs2[df<span class="sc">$</span>acs<span class="sc">==</span><span class="dv">2</span>]<span class="ot">&lt;-</span><span class="dv">2</span> </span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>acs2[df<span class="sc">$</span>acs<span class="sc">==</span><span class="dv">3</span>]<span class="ot">&lt;-</span><span class="dv">1</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>acsn <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>acs)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>acsn2 <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>acs2)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>id <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>ID)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>M2<span class="fl">.1</span> <span class="ot">&lt;-</span> <span class="fu">mblogit</span>(<span class="at">formula =</span> acsn2 <span class="sc">~</span> Treatment <span class="sc">+</span> SMONTH <span class="sc">+</span> TXSMTH, </span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>               <span class="at">random=</span><span class="sc">~</span><span class="dv">1</span><span class="sc">|</span>id, <span class="at">catCov =</span> <span class="st">"free"</span>, <span class="at">data=</span>df, </span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>               <span class="at">control =</span> <span class="fu">mmclogit.control</span>(<span class="at">epsilon=</span><span class="fl">1e-08</span>, <span class="at">maxit =</span> <span class="dv">25</span>,</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">trace=</span><span class="cn">TRUE</span>,<span class="at">trace.inner=</span><span class="cn">FALSE</span>, </span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">avoid.increase=</span><span class="cn">FALSE</span>, </span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">break.on.increase=</span><span class="cn">FALSE</span>, </span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">break.on.infinite=</span><span class="cn">FALSE</span>, </span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">break.on.negative=</span><span class="cn">FALSE</span> </span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>                                          )</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>               )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Iteration 1 - deviance = 2354.677 - criterion = 0.794223
+Iteration 2 - deviance = 2344.297 - criterion = 0.03072274
+Iteration 3 - deviance = 2331.546 - criterion = 6.921906e-05
+Iteration 4 - deviance = 2331.038 - criterion = 1.273286e-09
+converged</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(M2<span class="fl">.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+mblogit(formula = acsn2 ~ Treatment + SMONTH + TXSMTH, data = df, 
+    random = ~1 | id, catCov = "free", control = mmclogit.control(epsilon = 1e-08, 
+        maxit = 25, trace = TRUE, trace.inner = FALSE, avoid.increase = FALSE, 
+        break.on.increase = FALSE, break.on.infinite = FALSE, 
+        break.on.negative = FALSE))
+
+Equation for 2 vs 1:
+            Estimate Std. Error z value Pr(&gt;|z|)
+(Intercept)   0.1547     0.2078   0.744    0.457
+Treatment     0.3334     0.2938   1.135    0.256
+SMONTH        0.1023     0.1115   0.917    0.359
+TXSMTH        0.0941     0.1631   0.577    0.564
+
+Equation for 3 vs 1:
+            Estimate Std. Error z value Pr(&gt;|z|)   
+(Intercept) -0.65045    0.25823  -2.519  0.01177 * 
+Treatment    0.08273    0.36795   0.225  0.82211   
+SMONTH       0.41872    0.12976   3.227  0.00125 **
+TXSMTH       0.35545    0.18914   1.879  0.06020 . 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Co-)Variances:
+Grouping level: id 
+    Estimate        Std.Err.       
+2~1 1.2206          0.04749        
+3~1 0.3608 2.0948   0.12543 0.21400
+
+Approximate residual deviance: 2331 
+Number of Fisher scoring iterations:  4
+Number of observations
+  Groups by id: 303
+  Individual observations:  1194</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mtable</span>(M2<span class="fl">.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Calls:
+M2.1: mblogit(formula = acsn2 ~ Treatment + SMONTH + TXSMTH, data = df, 
+    random = ~1 | id, catCov = "free", control = mmclogit.control(epsilon = 1e-08, 
+        maxit = 25, trace = TRUE, trace.inner = FALSE, avoid.increase = FALSE, 
+        break.on.increase = FALSE, break.on.infinite = FALSE, 
+        break.on.negative = FALSE))
+
+==========================================
+                         2/1      3/1     
+------------------------------------------
+  (Intercept)            0.155  -0.650*   
+                        (0.208) (0.258)   
+  Treatment              0.333   0.083    
+                        (0.294) (0.368)   
+  SMONTH                 0.102   0.419**  
+                        (0.111) (0.130)   
+  TXSMTH                 0.094   0.355    
+                        (0.163) (0.189)   
+------------------------------------------
+  2/1 x  VCov(~1,~1)     1.221   0.361    
+                        (0.047) (0.125)   
+  3/1 x  VCov(~1,~1)     0.361   2.095    
+                        (0.125) (0.214)   
+------------------------------------------
+  Groups by id         303                
+------------------------------------------
+  Deviance            2331.0              
+  N                   1194                
+==========================================
+  Significance: *** = p &lt; 0.001;   
+                ** = p &lt; 0.01;   
+                * = p &lt; 0.05  </code></pre>
+</div>
+</div>
+<ol type="1">
+<li>Equation for Fair vs Poor: <span class="math inline">\(log\{\frac{Pr(Y_{ij}=2|b_{i}^{(c)})}{Pr(Y_{ij}=3|b_{i}^{(c)})}\}=-0.65045+0.08273*\text{Treatment}_i+0.41872\sqrt{\text{(Month)}}_{ij}+0.35545*\text{Treatment}*\sqrt{\text{(Month)}}_{ij}+b_{1i}^{(c)}\)</span> where <span class="math inline">\(b_{1i}^{(c)} \sim N(0, 2.0948)\)</span></li>
+<li>Equation for Good or Very Good vs Poor: <span class="math inline">\(log\{\frac{Pr(Y_{ij}=1|b_{i}^{(c)})}{Pr(Y_{ij}=3|b_{i}^{(c)})}\}=0.1547+0.3334*\text{Treatment}_i+0.1023\sqrt{\text{(Month)}}_{ij}+0.0941*\text{Treatment}*\sqrt{\text{(Month)}}_{ij}+b_{1i}^{(c)}\)</span> where <span class="math inline">\(b_{1i}^{(c)} \sim N(0, 1.2206)\)</span></li>
+</ol>
+</section>
+<section id="intervention-group-effect-test" class="level2">
+<h2 class="anchored" data-anchor-id="intervention-group-effect-test">Intervention Group Effect Test</h2>
+<p>For each relevant equation, let’s test the significant effect of the intervention group on the change in subject-specific odds of a more favorable response.</p>
+<p>Using a Wald Test: <span class="math inline">\(H_0: \beta_4^{(1)}=0\)</span> <span class="math inline">\(H_{a}: \beta_4^{(1)} \neq 0\)</span></p>
+<ol type="1">
+<li>Fair vs Poor: With a z-value of 0.577 and p-value &gt; 0.05 (0.564), we fail to reject the null hypothesis. This means that there is not a significant effect of intervention group on the change in subject-specific odds of a more favorable response over the duration of the study.</li>
+<li>Good or Very Good vs Poor: With a z-value of 1.879 and p-value &gt; 0.05 (0.06), we fail to reject the null hypothesis. This means that there is not a significant effect of intervention group on the change in subject-specific odds of a more favorable response over the duration of the study.</li>
+</ol>
+</section>
+<section id="interpretation-of-intercepts" class="level2">
+<h2 class="anchored" data-anchor-id="interpretation-of-intercepts">Interpretation of Intercepts</h2>
+<ol type="1">
+<li><p>The log-odds of the Fair category relative to the Poor category is estimated to change by <span class="math inline">\(\widehat{\beta_1^{(2)}} = -0.65045\)</span> for an individual with propensity to respond higher relative to the baseline category.</p></li>
+<li><p>The log-odds of the Good or Very Good category relative to the Fair category is estimated to change by <span class="math inline">\(\widehat{\beta_1^{(1)}} = 0.1547\)</span> for an individual with propensity to respond higher relative to the baseline category.</p></li>
+</ol>
+<p>The interpretations are different from Section 1 because Section 1 looks at the cumulative logits and is not specific to which <span class="math inline">\(C-1\)</span> logit is being looked at while 3iii looks at logit specific to each <span class="math inline">\(C-1\)</span>.</p>
+</section>
+<section id="odds-ratios-plot" class="level2">
+<h2 class="anchored" data-anchor-id="odds-ratios-plot">Odds Ratios Plot</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>MONTH<span class="ot">&lt;-</span><span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>),<span class="dv">2</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>SM<span class="ot">=</span><span class="fu">sqrt</span>(MONTH)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>Numerator<span class="ot">=</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">4</span>),<span class="fu">rep</span>(<span class="dv">2</span>,<span class="dv">4</span>))</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>Beta4_hat<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="fl">0.35545</span>,<span class="dv">4</span>),<span class="fu">rep</span>(<span class="fl">0.094</span>,<span class="dv">4</span>))</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>OR_data<span class="ot">&lt;-</span><span class="fu">cbind</span>(Numerator, MONTH,SM,Beta4_hat)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(OR_data) <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">8</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>OR_data <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">apply</span>(OR_data[ , <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>], <span class="dv">2</span>, as.numeric))</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>OR_data<span class="sc">$</span>OR <span class="ot">&lt;-</span> <span class="fu">exp</span>(OR_data<span class="sc">$</span>SM<span class="sc">*</span>OR_data<span class="sc">$</span>Beta4_hat)</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="co">#Create a factor variable for Comparison</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>OR_data<span class="sc">$</span>Comparison <span class="ot">&lt;-</span> <span class="fu">factor</span>(OR_data<span class="sc">$</span>Numerator, </span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>                             <span class="at">levels=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), </span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>                             <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"1 vs. 3"</span>,<span class="st">"2 vs. 3"</span>))</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(OR_data, <span class="fu">aes</span>(<span class="at">x=</span>MONTH, <span class="at">y=</span>OR, <span class="at">group=</span>Comparison))</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>p2 <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color=</span>Comparison)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color=</span>Comparison)) <span class="sc">+</span></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Estimated Subject-Specific </span></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a><span class="st">               Baseline Odds Ratios over Time: </span><span class="sc">\n</span><span class="st">Drug vs Placebo</span></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a><span class="st">               (Excluding difference in baseline)"</span>, <span class="at">y=</span><span class="st">"Odds Ratio"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="HW6_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>At 4 months, a patient assigned to the treatment is approximately 1.2 times more likely to feel Fair vs.&nbsp;Poor compared to a similar patient treated with placebo. At 4 months, a patient assigned to the treatment is approximately 2 times more likely to feel Very Good or Good vs.&nbsp;Poor compared to a similar patient treated with placebo.</p>
+</section>
+<section id="probability-estimation-equations" class="level2">
+<h2 class="anchored" data-anchor-id="probability-estimation-equations">Probability Estimation Equations</h2>
+<p>Let’s write equations for estimating probabilities of each level of the nominal response for a typical subject. To understand the numerical workings, we can calculate the probability of a “Fair” response at 6 months for a treatment group patient with a specific random intercept.</p>
+<p><span class="math inline">\(log\{\frac{Pr(Y_{ij}=c|b_{i}^{(c)})}{Pr(Y_{ij}=3|b_{i}^{(c)})}\}=\beta_1^{(c)}+\beta_2^{(c)}*\text{Treatment}_i+\beta_3^{(c)}*\sqrt{\text{(Month)}}_{ij}+\beta_4^{(c)}*\text{Treatment}*\sqrt{\text{(Month)}}_{ij}+b_{1i}^{(c)}, c=1,2\)</span></p>
+<p>For Fair vs Poor: <span class="math inline">\(log\{\frac{Pr(Y_{ij}=c|b_{i}^{(c)})}{Pr(Y_{ij}=3|b_{i}^{(c)})}\}=\beta_1^{(c)}+\beta_2^{(c)}*\text{Treatment}_i+\beta_3^{(c)}*\sqrt{\text{(Month)}}_{ij}+\beta_4^{(c)}*\text{Treatment}*\sqrt{\text{(Month)}}_{ij}+b_{1i}^{(c)}\)</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+Pr(Y_{ij}=c|b_{i}) &amp;= exp(\beta_1^{(c)}+\beta_2^{(c)}*\text{Treatment}_i+\beta_3^{(c)}*\sqrt{\text{(Month)}}_{ij}\\
++\beta_4^{(c)}*\text{Treatment}*\sqrt{\text{(Month)}}_{ij}+b_{1i}^{(c)})*Pr(Y_{ij}=3|b_{i})\\
+&amp;= exp(0.1547+0.3334\text{Treatment}_i+0.1023*\sqrt{\text{(Month)}}_{ij}+0.0941\text{Treatment}*\sqrt{\text{(Month)}}_{ij}+b_{1i})Pr(Y_{ij}=3|b_{i})\\
+&amp;=exp(\eta_{ij}^{(1)*}+b_{1i})*Pr(Y_{ij}=3|b_{i})
+\end{aligned}
+\]</span></p>
+<p>For Good or Very Good vs Poor:</p>
+<p><span class="math inline">\(log\{\frac{Pr(Y_{ij}=c|b_{i}^{(c)})}{Pr(Y_{ij}=3|b_{i}^{(c)})}\}=\beta_1^{(c)}+\beta_2^{(c)}*\text{Treatment}_i+\beta_3^{(c)}*\sqrt{\text{(Month)}}_{ij}+\beta_4^{(c)}*\text{Treatment}*\sqrt{\text{(Month)}}_{ij}+b_{1i}^{(c)}\)</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+Pr(Y_{ij}=c|b_{i}) &amp;= exp(\beta_1^{(c)}+\beta_2^{(c)}*\text{Treatment}_i+\beta_3^{(c)}*\sqrt{\text{(Month)}}_{ij}\\
++\beta_4^{(c)}*\text{Treatment}*\sqrt{\text{(Month)}}_{ij}+b_{1i}^{(c)})*Pr(Y_{ij}=3|b_{i}) \\
+&amp;= exp(-0.65045+0.08273\text{Treatment}_i+0.41872*\sqrt{\text{(Month)}}_{ij}+0.35545\text{Treatment}*\sqrt{\text{(Month)}}_{ij}+b_{1i})*Pr(Y_{ij}=3|b_{i})\\
+&amp;=exp(\eta_{ij}^{(1)*}+b_{1i})*Pr(Y_{ij}=3|b_{i})\\
+\end{aligned}
+\]</span></p>
+<p>Given <span class="math inline">\(Pr(Y_{ij}=3|b_{i})=1-Pr(Y_{ij}=1|b_{i})-Pr(Y_{ij}=2|b_{i})\)</span>, we can derive <span class="math inline">\(Pr(Y_{ij}=3|b_{i})=\frac{1}{1+exp(\eta_{ij}^{(1)*}+b_{1i})+exp(\eta_{ij}^{(2)*}+b_{1i})}\)</span>. Thus, <span class="math inline">\(Pr(Y_{ij}=1|b_{i})=\frac{exp(\eta_{ij}^{(1)*}+b_{1i})}{1+exp(\eta_{ij}^{(1)*}+b_{1i})+exp(\eta_{ij}^{(2)*}+b_{1i})}\)</span> and <span class="math inline">\(Pr(Y_{ij}=2|b_{i})=\frac{exp(\eta_{ij}^{(2)*}+b_{1i})}{1+exp(\eta_{ij}^{(1)*}+b_{1i})+exp(\eta_{ij}^{(2)*}+b_{1i})}\)</span>.</p>
+<p>Using this, we can get the probability of probability of having “Fair” response at 6 months of follow up for a patient randomized to the treatment group with a random intercept <span class="math inline">\(b_i =-0.17\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+Pr(Y_{ij}=2|b_{i}=-0.17) &amp;= \frac{exp(0.1547+0.3334+0.1023(\sqrt6)+0.0941(\sqrt6)-0.17)}
+{1+exp(-0.65045+0.08273+0.41872(\sqrt6)+0.35545(\sqrt6)-0.17)+exp(0.1547+0.3334+0.1023(\sqrt6)+0.0941(\sqrt6)-0.17)} \\
+&amp;= \frac{2.223716}{1+3.185475+2.223716}\\
+&amp;=0.3469574
+\end{aligned}
+\]</span></p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

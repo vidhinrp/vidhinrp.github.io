@@ -1,6 +1,3 @@
----
-permalink: README.html
----
 
 # Hi there, I'm Vidhi. 
 

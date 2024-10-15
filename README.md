@@ -1,3 +1,7 @@
+---
+permalink: README.html
+---
+
 # Hi there, I'm Vidhi. 
 
 Below are some data science projects I've recently worked on.

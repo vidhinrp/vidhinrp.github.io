@@ -15,13 +15,13 @@ Graph Neural Networks (GNNs) are powerful for representation learning but face s
 
 ### Classification: Predicting Hospital Admission Based on Emergency Admission Triage
 
-[Notebook](http://htmlpreview.github.io/?https://github.com/vidhinrp/vidhipatel.github.io/blob/bfeffc0000eacb49cd16fb468c2c1725975b5c40/Projects/admissionstatus.html) 
+[Notebook](https://github.com/vidhinrp/vidhipatel.github.io/blob/bfeffc0000eacb49cd16fb468c2c1725975b5c40/Projects/admissionstatus.html) 
 
 Using patient history data (900+ features and 500K+ entries) from three EDs - a level I trauma center, a community hospital-based department, and a suburban, free-standing department - collected between March 2013 to July 2017, I attempted to recreate and extend explainability of results from an existing [study](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0201016#sec005). The study aimed to predict hospital admission at the time of triage in the emergency department. Accuracy in comparison to the orignal paper of logistic regression (83% vs 87%) and XGBoost (85% vs 87% accurary) models was within reason. I further examined inner-workings of models using SHAP values. 
 
 ### Natural Language Processing: Fine-tuning BART For Text Summarization
 
-[Notebook](http://htmlpreview.github.io/?https://github.com/vidhinrp/vidhipatel.github.io/blob/bfeffc0000eacb49cd16fb468c2c1725975b5c40/Projects/textsummarization.html)
+[Notebook](https://github.com/vidhinrp/vidhipatel.github.io/blob/bfeffc0000eacb49cd16fb468c2c1725975b5c40/Projects/textsummarization.html)
 
 Using BART (Bidirectional and Auto-Regressive Transformers) to conduct text summarization, I implemented custom cross-entropy loss and ROUGE-based performance evaluation functions. Additionally, I tested multiple decoding algorithms including greedy decoding, BEAM search and sampling. The performance of the model was evaluated on the XSum dataset. 
 
@@ -40,7 +40,7 @@ I developed a discrete event simulation model for an urgent care facility to opt
 
 ### Data Analysis: Armed Water Conflicts
 
-[Notebook](http://htmlpreview.github.io/?https://github.com/vidhinrp/vidhipatel.github.io/blob/bfeffc0000eacb49cd16fb468c2c1725975b5c40/Projects/waterconflicts.html)
+[Notebook](https://github.com/vidhinrp/vidhipatel.github.io/blob/bfeffc0000eacb49cd16fb468c2c1725975b5c40/Projects/waterconflicts.html)
 
 Using data from the Pacific Institute, I conducted data analysis on armed conflicts associated with water resources and water systems, as identified from news reports, eyewitness accounts, and other conflict databases.
 
@@ -71,7 +71,7 @@ Aimed to understand and predict Low Birth Weight (LBW) by analyzing an anoynomiz
 ### ETL: Patient Data
 
 [Github](https://github.com/vidhinrp/vidhipatel.github.io/tree/77f5af1e82c864c5b2aa077bcc3f2bc79cffc70d/patient_records)
-[Notebook](http://htmlpreview.github.io/?https://github.com/vidhinrp/vidhipatel.github.io/blob/bfeffc0000eacb49cd16fb468c2c1725975b5c40/Projects/patient_records.html)
+[Notebook](https://github.com/vidhinrp/vidhipatel.github.io/blob/bfeffc0000eacb49cd16fb468c2c1725975b5c40/Projects/patient_records.html)
 
 Using synthetic patient data from the Synthea database that was adopted to fit the OMOP schema, created PySpark scripts to extract, load and transform relevant patient information. The scripts extract data from tables stored on AWS related to demographic information, medical measurements, and medical conditions. Variables were transformed to ensure standardization and then loaded into singular dataframe based on dataset requirements. Demonstrated how the scripts work and final dataframe generation as well as generated plots to visualize final data in the notebook above.
 

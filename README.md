@@ -28,7 +28,7 @@ Using BART (Bidirectional and Auto-Regressive Transformers) to conduct text summ
 
 ### Simulation: Optimizing Therapy for Pediatric Asthma: Daily vs. Intermittent ICS
 
-[Github]() 
+[Github](https://github.com/vidhinrp/asthma_optmization.git) 
 [Paper](https://github.com/vidhinrp/vidhipatel.github.io/blob/bfeffc0000eacb49cd16fb468c2c1725975b5c40/Projects/costeffectiveness.pdf).
 
 I assessed cost-effectiveness of two types of pediatric asthma therapies (daily or intermittent) in Colombia using discrete-time Markov chain. Looked at cost per patient and average health utility for each therapy to determine the optimal therapy is daily ICS, yielding a cost-savings of $152/patient. I conducted sensitvity analysis by simulating 1000 cohorts using Monte Carlo techniques, helping highlight the robustness of initial model results. 

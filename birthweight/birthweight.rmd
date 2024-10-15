@@ -1,0 +1,171 @@
+---
+output: reprex::reprex_document
+knit: purl()
+---
+
+```{r}
+library(tidyverse)
+library(dplyr)
+library(corrplot)
+library(MASS)
+library(ggfortify)
+library(car)
+library(glmnet)
+load('BIS623_FinalProjectData.rda')
+
+```
+
+```{r}
+#convert bwt from grams to pounds
+data$bwt = (data$bwt)/453.6
+
+#factorize categorical data
+data$babysex = factor(data$babysex)
+data$frace = factor(data$frace)
+data$mrace = factor(data$mrace)
+
+#drop columns with 0 - if it doesn't make sense
+colsrmv = c("bhead", "blength", "delwt", "gaweeks", "menarche", "mheight","momage", "ppbmi", "ppwt")
+
+data = subset(data, select = sapply(data[colsrmv], function(x) length(unique(x))) > 1)
+
+# remove rows with 0 birth weight and na 
+data = data[!(data$bwt == 0 | is.na(data$bwt)), ]
+
+```
+
+```{r}
+#quick glance at data
+head(data)
+
+# summary statistics
+summary(data)
+```
+
+```{r}
+# drop columns with same value
+data = data[, -c(15, 16)]
+```
+
+```{r}
+par(mar = c(1, 1, 1, 1))
+# analyze distribution of numeric variables
+numeric_cols <- data[, sapply(data, is.numeric)]
+par(mfrow = c(ceiling(sqrt(ncol(numeric_cols))), ceiling(sqrt(ncol(numeric_cols)))))
+for (col in names(numeric_cols)) {
+  hist(numeric_cols[[col]], main = col)
+}
+dev.off()
+
+```
+
+```{r}
+# transform non-normal columns
+data2 <- data
+data2$momage = log(data2$momage) 
+data2$ppwt = log(data2$ppwt) 
+data2$delwt = log(data2$delwt) 
+
+# convert columns with clusters into categories
+data2$menarche = factor(ifelse(data2$menarche < 10, "Early",
+                                   ifelse(data2$menarche >= 10 & data2$menarche <= 15, "Normal", "Late")))
+data2$blength = factor(ifelse(data2$blength < 47, "Short",
+                                   ifelse(data2$menarche >= 47 & data2$menarche <= 53, "Normal", "Long")))
+```
+
+```{r}
+numeric_cols <- data2[, sapply(data2, is.numeric)]
+# correlations
+corrplot(cor(numeric_cols),method = "square", type = "upper")
+```
+
+
+```{r}
+# drop colinear columns
+data3 = data2[, -c(5, 3, 15)]
+```
+
+```{r}
+# conduct t-test and ANOVA for variables
+t.test(data3$bhead, data3$bwt)
+t.test(data3$fincome, data3$bwt)
+t.test(data3$malform, data3$bwt)
+t.test(data3$mheight, data3$bwt)
+t.test(exp(data3$momage), data3$bwt)
+t.test(data3$parity, data3$bwt)
+t.test(exp(data3$ppwt), data3$bwt)
+t.test(data3$smoken, data3$bwt)
+t.test(data3$wtgain, data3$bwt)
+t.test(data3$gaweeks, data3$bwt)
+t.test(data$menarche, data3$bwt)
+aov(data3$bwt ~ data3$babysex)
+oneway.test(data3$bwt ~ data3$frace, var.equal = FALSE)
+oneway.test(data3$bwt ~ data3$mrace, var.equal = FALSE)
+```
+
+```{r}
+# hybrid stepwise regression
+back <- lm(bwt ~ . + gaweeks * ppwt, data = data3)
+step <- stepAIC(back, direction = "both", trace = FALSE)
+summary(step)
+
+# residual and Q_Q plot
+autoplot(step, which = 1:6)
+```
+
+```{r}
+# final inference model
+regplot = lm(bwt ~ babysex+ppwt+bhead+mheight
+                    +gaweeks+smoken+wtgain+mrace, data = data3)
+summary(regplot)
+autoplot(regplot, which = 1:6)
+
+# VIF for inference model
+vif(regplot)
+```
+
+```{r}
+# split data into training and testing
+set.seed(12)  
+train_indices <- sample(1:nrow(data3), 0.7 * nrow(data3))
+train_data <- data3[train_indices, ]
+test_data <- data3[-train_indices, ]
+
+x_train = model.matrix(bwt~.,train_data)[,-1]
+y_train = train_data$bwt
+
+x_test = model.matrix(bwt~.,test_data)[,-1]
+y_test = test_data$bwt
+```
+
+
+```{r}
+# ridge regression
+ridge = glmnet(x_train, y_train, alpha = 0)
+summary(ridge)
+
+cv_ridge = cv.glmnet(x_train, y_train, alpha = 0)
+
+eval_results =  function(real, pred, df) {
+  SSE <- sum((pred - real)^2)
+  SST <- sum((real - mean(real))^2)
+  RSq <- 1 - SSE / SST
+  RMSE = sqrt(SSE/nrow(df))
+  data.frame(
+    RMSE = RMSE,
+    RSq = RSq
+  )
+}
+
+ridge_final = glmnet(x_train,y_train,alpha = 0, lambda = cv_ridge$lambda.min)
+# get coeff of model
+coef(best_model)
+
+# predict on test data
+pred_test =  predict(ridge, s = cv_ridge$lambda.min, newx = x_test)
+
+# get RMSE and R_2
+eval_results(y_test, pred_test, test_data)
+```
+
+

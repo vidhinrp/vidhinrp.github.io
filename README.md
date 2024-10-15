@@ -49,9 +49,8 @@ Using data from the Pacific Institute, I conducted data analysis on armed confli
 
 ### Survival Analysis: Time-Dependent Cox Model Analysis
 
-[Github](https://github.com/vidhinrp/survival_heart_transplant.git)
-[Report](https://github.com/vidhinrp/vidhipatel.github.io/blob/bfeffc0000eacb49cd16fb468c2c1725975b5c40/Projects/survival_analysis.pdf)
-
+[Github](https://github.com/vidhinrp/vidhinrp.github.io/survival_code)
+[Report]((https://github.com/vidhinrp/vidhinrp.github.io/blob/3e24d171884022e8cabd851fe66c896c02bace69/Projects/survival_analysis.pdf)
 Recreated select analyses from John Crawley and Marie Hu's paper Covariance Analysis of Heart Transplant Survival Data. I evaluated effects of time-varying covariates on survival of transplant by looking at parameter estimations of three seperate Cox proportional hazard models. I looked at estimations of relative risk of transplants for age-varying groups using a selected model from those evaluated. 
 
 ### Longitudinal and Multilevel Modeling: Assessing Arthritis Treatment Efficacy

@@ -156,7 +156,7 @@ With a p-value < 0.05 and test statistic of 5.2242 for a liklihood ratio test, w
 
 ## Interpreting Combined Intercepts
 
-The first cumulative $logit\{Pr(Y_{ij} \leq 1)\}$ of a typical patient at baseline in the placebo group = $\hat{{a_{1}^{©}}}=-1.9178$. The second second cumulative $logit\{Pr(Y_{ij} \leq 2)\}$ of a typical patient at baseline in the placebo group = $\hat{{a_{2}^{©}}}=1.0128$
+The first cumulative $logit\{Pr(Y_{ij} \leq 1)\}$ of a typical patient at baseline in the placebo group = $\hat{ {a_{1}^{©}} }=-1.9178$. The second second cumulative $logit\{Pr(Y_{ij} \leq 2)\}$ of a typical patient at baseline in the placebo group = $\hat{ {a_{2}^{©} } }=1.0128$
 
 ## Visualizing the Proportionality Assumption
 

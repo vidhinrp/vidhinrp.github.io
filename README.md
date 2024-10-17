@@ -42,14 +42,21 @@ I developed a discrete event simulation model for an urgent care facility to opt
 ### Data Analysis: Armed Water Conflicts
 
 [Notebook](https://htmlpreview.github.io/?https://github.com/vidhinrp/vidhinrp.github.io/blob/9ee70222b7d9a9567b703f0f800f318c0c9d6a32/Projects/waterconflicts.html)
-Using data from the Pacific Institute, I conducted data analysis on armed conflicts associated with water resources and water systems, as identified from news reports, eyewitness accounts, and other conflict databases.
+Using data from the Pacific Institute, I conducted data analysis on armed conflicts associated with water resources and water systems, as identified from news reports, eyewitness accounts, and other conflict databases. 
 
 ## R
+### R Shiny: Clinical Trials Gov Database
+
+[Github](https://github.com/vidhinrp/ctrials.git)
+
+Developed and deployed an R Shiny dashboard to analyze over 500,000 clinical studies from ClinicalTrials.gov, utilizing tidyverse principles to create dynamic visualizations of key metrics, including study phases, conditions examined, and intervention types, facilitating insights into clinical research trends.
+
 
 ### Survival Analysis: Time-Dependent Cox Model Analysis
 
 [Github](https://github.com/vidhinrp/vidhinrp.github.io/tree/e987726131b48bff08fe1051bb6acda7b6862b18/survival_code)
 [Report](https://github.com/vidhinrp/vidhinrp.github.io/blob/3e24d171884022e8cabd851fe66c896c02bace69/Projects/survival_analysis.pdf)
+
 Recreated select analyses from John Crawley and Marie Hu's paper Covariance Analysis of Heart Transplant Survival Data. I evaluated effects of time-varying covariates on survival of transplant by looking at parameter estimations of three seperate Cox proportional hazard models. I looked at estimations of relative risk of transplants for age-varying groups using a selected model from those evaluated. 
 
 ### Longitudinal and Multilevel Modeling: Assessing Arthritis Treatment Efficacy
